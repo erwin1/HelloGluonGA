@@ -35,9 +35,15 @@ jobs:
       env:
         GRAALVM_HOME: /System/Volumes/Data/Users/runner/hostedtoolcache/GraalVM/20.2.0-java11/x64/
     - name: Copy native client to staging
-      run: cp -r target/client/*ipa staging
+      run: cp -r target/client/arm64-ios/*ipa staging
     - name: Upload
       uses: actions/upload-artifact@v2
       with:
         name: Package
         path: staging
+    - uses: Apple-Actions/upload-testflight-build@master
+      with:
+        app-path: target/client/arm64-ios/HelloGluon.ipa
+        issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+        api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+        api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
