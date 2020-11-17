@@ -32,9 +32,9 @@ jobs:
         api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
     - name: Gluon Build
       uses: erwin1/gluon-ios-release@main
-        with:
-          gluon-license: 'xyz'
-          platform: 'ios'
+      with:
+        gluon-license: 'xyz'
+        platform: 'ios'
 #    - name: Build and package as iOS application with Gluon
 #      run: mvn -Pios client:build client:package
 #      env:
