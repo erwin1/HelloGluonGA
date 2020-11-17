@@ -81,8 +81,11 @@
                 <version>${javafx.maven.plugin.version}</version>
                 <configuration>
                     <mainClass>${main.class}</mainClass>
-                    <IOSSigningIdentity>iPhone Distribution: Gluon Software BVBA (S7ZR395D8U)</IOSSigningIdentity>
-                    <IOSProvisioningProfile>HelloGluonGA</IOSProvisioningProfile>
+                    <releaseConfiguration>
+                        <bundleVersion>${env.GITHUB_RUN_NUMBER}</bundleVersion>
+                        <bundleShortVersion>1.1</bundleShortVersion>
+                        <skipSigning>${skipIOSSigning}</skipSigning>
+                    </releaseConfiguration>
                 </configuration>
             </plugin>
 
