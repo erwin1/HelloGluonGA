@@ -30,7 +30,7 @@ jobs:
         api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
 
     - name: Gluon Build
-      uses: gluonhq/gluon-build@main
+      uses: gluonhq/gluon-build@v1
       with:
         gluon-license: ${{ secrets.GLUON_LICENSE }}
         target: 'ios'
