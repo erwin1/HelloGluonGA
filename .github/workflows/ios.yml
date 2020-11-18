@@ -30,10 +30,10 @@ jobs:
         api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
 
     - name: Gluon Build
-      uses: erwin1/gluon-ios-release@main
+      uses: gluonhq/gluon-build@main
       with:
         gluon-license: ${{ secrets.GLUON_LICENSE }}
-        platform: 'ios'
+        target: 'ios'
 
     - uses: Apple-Actions/upload-testflight-build@master
       with:
