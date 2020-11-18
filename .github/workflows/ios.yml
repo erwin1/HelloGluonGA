@@ -32,7 +32,7 @@ jobs:
     - name: Gluon Build
       uses: erwin1/gluon-ios-release@main
       with:
-        gluon-license: 'xyz'
+        gluon-license: ${{ secrets.APPSTORE_ISSUER_ID }}
         platform: 'ios'
 
     - uses: Apple-Actions/upload-testflight-build@master
