@@ -39,6 +39,19 @@ jobs:
           GLUON_ANDROID_KEYALIAS: ${{ secrets.GLUON_ANDROID_KEYALIAS }}
           GLUON_ANDROID_KEYALIAS_PASSWORD: ${{ secrets.GLUON_ANDROID_KEYALIAS_PASSWORD }}
 
+      - name: Make staging directory
+        run: mkdir staging
+
+      - name: Copy native clients to staging
+        run: cp -r target/client/aarch64-android/gvm/*.apk staging
+
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: Package
+          path: staging
+
+
       - name: Upoad to Google Play
         uses: r0adkll/upload-google-play@v1
         with:
