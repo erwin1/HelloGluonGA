@@ -80,6 +80,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>${javafx.maven.plugin.version}</version>
                 <configuration>
+                    <verbose>true</verbose>
                     <mainClass>${main.class}</mainClass>
                     <releaseConfiguration>
                         <!-- for iOS -->
