@@ -42,7 +42,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
-public class HelloGluon extends MobileApplication {
+public class HelloGluonApp extends MobileApplication {
 
     @Override
     public void init() {
@@ -50,7 +50,7 @@ public class HelloGluon extends MobileApplication {
             FloatingActionButton fab = new FloatingActionButton(MaterialDesignIcon.SEARCH.text,
                     e -> System.out.println("Search"));
 
-            ImageView imageView = new ImageView(new Image(HelloGluon.class.getResourceAsStream("openduke.png")));
+            ImageView imageView = new ImageView(new Image(HelloGluonApp.class.getResourceAsStream("openduke.png")));
 
             imageView.setFitHeight(200);
             imageView.setPreserveRatio(true);
@@ -75,7 +75,7 @@ public class HelloGluon extends MobileApplication {
     @Override
     public void postInit(Scene scene) {
         Swatch.LIGHT_GREEN.assignTo(scene);
-        scene.getStylesheets().add(HelloGluon.class.getResource("styles.css").toExternalForm());
+        scene.getStylesheets().add(HelloGluonApp.class.getResource("styles.css").toExternalForm());
 
         if (Platform.isDesktop()) {
             Dimension2D dimension2D = DisplayService.create()

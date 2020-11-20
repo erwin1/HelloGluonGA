@@ -19,7 +19,7 @@
         <connect.version>2.0.1</connect.version>
         <javafx.maven.plugin.version>0.0.4</javafx.maven.plugin.version>
         <client.maven.plugin.version>0.1.34</client.maven.plugin.version>
-        <main.class>com.gluonhq.hello.HelloGluon</main.class>
+        <main.class>com.gluonhq.hello.HelloGluonApp</main.class>
     </properties>
 
     <dependencies>
@@ -82,9 +82,14 @@
                 <configuration>
                     <mainClass>${main.class}</mainClass>
                     <releaseConfiguration>
+                        <!-- for iOS -->
                         <bundleVersion>${env.GITHUB_RUN_NUMBER}</bundleVersion>
-                        <bundleShortVersion>1.1</bundleShortVersion>
-                        <skipSigning>${skipIOSSigning}</skipSigning>
+                        <!-- for Android -->
+                        <versionCode>${env.GITHUB_RUN_NUMBER}</versionCode>
+                        <providedKeyStorePath>${env.GLUON_ANDROID_KEYSTOREPATH}</providedKeyStorePath>
+                        <providedKeyStorePassword>${env.GLUON_ANDROID_KEYSTORE_PASSWORD}</providedKeyStorePassword>
+                        <providedKeyAlias>${env.GLUON_ANDROID_KEYALIAS}</providedKeyAlias>
+                        <providedKeyAliasPassword>${env.GLUON_ANDROID_KEYALIAS_PASSWORD}</providedKeyAliasPassword>
                     </releaseConfiguration>
                 </configuration>
             </plugin>
